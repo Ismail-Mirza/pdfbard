@@ -51,10 +51,10 @@ const UploadDropzone = ({
           method: 'post',
 
           maxBodyLength: Infinity,
-          url: 'https://apibud.azurewebsites.net/load_vector',
+          url: `${process.env.LOAD_VECTOR_URL}/load_vector`,
           headers: { 
             'Content-Type': 'application/json', 
-            'apiKey': 'LgCbJiE2Y7rkvhSUCg9JYdSmv8VyWG5x'
+            'apiKey': process.env.LOAD_VECTOR_API_KEY
           },
           data : data
         };
