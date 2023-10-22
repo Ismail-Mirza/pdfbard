@@ -51,10 +51,10 @@ const UploadDropzone = ({
           method: 'post',
 
           maxBodyLength: Infinity,
-          url: `${process.env.LOAD_VECTOR_URL}/load_vector`,
+          url: `${process.env.NEXT_PUBLIC_LOAD_VECTOR_URL}/load_vector`,
           headers: { 
             'Content-Type': 'application/json', 
-            'apiKey': process.env.LOAD_VECTOR_API_KEY
+            'apiKey': process.env.NEXT_PUBLIC_LOAD_VECTOR_API_KEY
           },
           data : data
         };
