@@ -3,8 +3,17 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import Image from 'next/image'
+import axios from 'axios'
+import FButton from '@/components/FetchButton'
 
 export default function Home() {
+ 
+
+  const fetch_data = ()=>{
+    'use client'
+   
+  }
+
   return (
     <>
       <MaxWidthWrapper className='mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center'>
@@ -24,6 +33,8 @@ export default function Home() {
           asking questions right away.
         </p>
 
+        {/* <FButton></FButton> */}
+    
         <Link
           className={buttonVariants({
             size: 'lg',
