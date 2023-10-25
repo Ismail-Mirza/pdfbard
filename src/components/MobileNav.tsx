@@ -2,11 +2,17 @@
 
 import { ArrowRight, Menu } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { Hanko } from "@teamhanko/hanko-elements";
+const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
+
+
 
 const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
   const [isOpen, setOpen] = useState<boolean>(false)
+  const router = useRouter();
+
 
   const toggleOpen = () => setOpen((prev) => !prev)
 
@@ -15,12 +21,29 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
   useEffect(() => {
     if (isOpen) toggleOpen()
   }, [pathname,isOpen])
+  const [hanko, setHanko] = useState<Hanko>();
+ 
+  useEffect(() => {
+    import("@teamhanko/hanko-elements").then(({ Hanko }) =>
+      setHanko(new Hanko(hankoApi ?? ""))
+    );
+  }, []);
 
   const closeOnCurrent = (href: string) => {
     if (pathname === href) {
       toggleOpen()
     }
   }
+  const logout = async () => {
+    try {
+      await hanko?.user.logout();
+      router.push("/auth/login");
+      router.refresh();
+      return;
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
 
   return (
     <div className='sm:hidden'>
@@ -82,11 +105,12 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
                 </li>
                 <li className='my-3 h-px w-full bg-gray-300' />
                 <li>
-                  <Link
+                  <button
+                    onClick={logout}
                     className='flex items-center w-full font-semibold'
-                    href='/sign-out'>
+                    >
                     Sign out
-                  </Link>
+                  </button>
                 </li>
               </>
             )}

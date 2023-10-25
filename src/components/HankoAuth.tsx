@@ -4,7 +4,10 @@ import { useEffect, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { register, Hanko } from "@teamhanko/hanko-elements";
 import axios from "axios";
-
+import "./auth.css"
+import Log from "../../public/log.svg"
+import Image from "next/image";
+import Link from "next/link";
 
 
  
@@ -68,5 +71,32 @@ export default function HankoAuth() {
     });
   }, []);
  
-  return <hanko-auth />;
+  return (
+    <div className="container">
+    <div className="forms-container">
+      <div className="signin-signup">
+        <div  className="root sign-in-form">
+          <hanko-auth className={"hanko"}></hanko-auth>
+        </div>
+      </div>
+    </div>
+
+    <div className="panels-container">
+      <div className="panel left-panel">
+        <div className="content">
+          <h3> Want to Subscribe Pro ?</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+            ex ratione. Aliquid!
+          </p>
+          <Link href={"/pricing/"} className="btn transparent px-10 py-2.5" id="sign-up-btn">
+            Subscribe
+          </Link>
+        </div>
+        {/* <img src={Log} className="image" alt="" /> */}
+        <Image alt="login-image" src={Log} className="image h-[300px]"></Image>
+      </div>
+    </div>
+  </div>
+  );
 }
