@@ -67,7 +67,7 @@ hanko-auth::part(input){
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
-  padding-left: 20px;
+  padding-left: 5px;
 
 }
 hanko-auth::part(input)::placeholder{
