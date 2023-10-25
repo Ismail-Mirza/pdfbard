@@ -29,14 +29,51 @@ Built with the Next.js 13.5 App Router, tRPC, TypeScript, Prisma & Tailwind
 To get started with this project, run
 
 ```bash
-  git clone 
+  git clone  https://github.com/Ismail-Mirza/pdfbard.git
+```
+To Install dependency
+
+```bash
+   yarn install or yarn
+  
 ```
 
 and copy the .env.example variables into a separate .env file, fill them out & and that's all you need to get started!
+```bash
+
+
+# Database for storing everything except PDF files - (Provider up to you, I like PlanetScale)
+DATABASE_URL=
+
+# Uploadthing for storing PDF files - https://uploadthing.com/dashboard
+UPLOADTHING_SECRET=
+UPLOADTHING_APP_ID=
+
+
+
+# Stripe for payment processing - https://stripe.com/
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+
+# Pinecone for long-term vector storage - https://www.pinecone.io/
+PINECONE_API_KEY=
+PINECONE_ENVIRONMENT = 
+#hanko 
+
+
+NEXT_PUBLIC_HANKO_API_URL = 
+
+#google api key for palm 2 
+GOOGLE_API_KEY = 
+#this api is made by me for loading load vector
+NEXT_PUBLIC_LOAD_VECTOR_URL=https://apibud.ishara.tech
+NEXT_PUBLIC_LOAD_VECTOR_API_KEY = 
+
+```
 
 
 ## Acknowledgements
 - [Josha](https://github.com/joschan21) based on his ui
-- [Kinde Auth](https://link.joshtriedcoding.com/kinde) for making this project possible
+
 
 ## License
